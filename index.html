@@ -1,0 +1,635 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<!--
+   This HTML template was coded by Rick Harris and modified by Sam Cotterell
+   Page graphics are source from Adobe Stock images. 
+   *** YOU WILL NEED TO REPLACE THESE IMAGES WITH YOUR OWN!!!!!! *****
+   
+   Since this will be embedded in the page, there is no need to add any html or body tags. 
+   Simply add and/or modify elements you want and they will be added.
+   
+   The following are the variables used to populate your lists so DON'T MODIFY THESE!!:
+   {PLAYLISTS} - Displays the list of your sequences for the viewer to request.
+   {NOW_PLAYING} - Displays the currently playing sequence.
+   {NEXT_PLAYLIST} - Displays the next sequence in the queue.
+   {QUEUE_SIZE} - Displays the current number of songs in the queue when using Jukebox mode.
+   {QUEUE_DEPTH} - Displays the size that you have configured for your queue. This can be used in error messages or your instructions if you want.
+   {LOCATION_CODE} - Displays the input field used to capture the location code.
+   {JUKEBOX_QUEUE} - Displays the list of sequences currently in the jukebox queue.
+    
+-->
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&family=Rajdhani&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.typekit.net/ygm8agc.css">
+
+<style type="text/css">
+    /******************* 
+     BASE CONFIG 
+*******************/
+    html {
+        box-sizing: border-box;
+        font-family: 'Big Shoulders Display', sans-serif;
+        font-family: 'Rajdhani', sans-serif;
+        color: white;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    /****** 
+  BODY 
+*******/
+    body {
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        width: auto;
+        height: 100%;
+        min-height: 900px;
+        background: #080611;
+        position: relative;
+    }
+
+    /****** 
+  DIV 
+*******/
+    div {
+        font-size: 11px;
+        line-height: 1.5;
+        text-align: center;
+        color: white;
+    }
+
+    /****************
+   HEADER IMAGE
+*****************/
+    #header_Img_Content {
+        margin: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    #your-logo {
+        margin: auto;
+        text-align: center;
+    }
+
+    /**************
+   BODY TEXT
+***************/
+    .body_text {
+        box-sizing: border-box;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        font-weight: normal;
+
+    }
+
+    /****************** 
+	INSTRUCTIONS
+******************/
+    #instructional-text {
+        margin: auto;
+        width: 90%;
+        color: #ffffff;
+        text-align: center;
+        font-size: 18px;
+
+    }
+
+    /************** 
+	FOOTER
+**************/
+    #footer {
+        margin: auto;
+        width: 100%;
+        color: transparent;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    /********************
+	INTRO SECTION
+********************/
+    #intro {
+        margin: auto;
+        width: 100%;
+        color: lightgoldenrodyellow;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+
+    }
+
+    #intro-text {
+        margin: auto;
+        width: 90%;
+        color: #ffffff;
+        text-align: center;
+        font-size: 20px;
+
+    }
+
+    /********************
+	SEPERATOR BAR
+********************/
+    hr.separator {
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 90%;
+        height: 8px;
+        border: 0;
+        background-color: #F87B02;
+        padding: 0px;
+    }
+
+    /************************
+	LOCATION CODE TEXT
+************************/
+    #location_code_text {
+        margin: auto;
+        width: 90%;
+        color: goldenrod;
+        text-align: center;
+        font-size: 40px;
+
+    }
+
+    /****************************
+	LOCATION CODE CONTAINER
+****************************/
+    #location_code_container {
+        margin: auto;
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-size: 18px;
+
+    }
+
+    /************************
+	PLAYLISTS CONTAINER
+************************/
+    #playlists_container {
+        margin: auto;
+        width: 90%;
+        color: #ffffff;
+        text-align: center;
+        font-size: 18px;
+
+    }
+
+    #playlist-text {
+        margin: auto;
+        width: 90%;
+        color: #ffffff;
+        text-align: center;
+        font-size: 18px;
+
+    }
+
+    /*********************
+    SECTION TITLES - Titles to the different sections of the page
+*********************/
+    .rf-titles {
+        border-bottom: 5px white;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .white-title {
+        box-sizing: border-box;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        text-align: center;
+        font-size: 40px;
+
+    }
+
+    .light-main-title {
+        box-sizing: border-box;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+
+    }
+
+    .main-title {
+        box-sizing: border-box;
+        margin-top: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    .follow-us {
+        box-sizing: border-box;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        color: goldenrod;
+        text-align: center;
+        font-size: 25px;
+
+    }
+
+    /******************
+	PLAYING NOW
+******************/
+    .playing-now {
+        margin-top: 10px;
+        color: white;
+        font-size: 20px;
+    }
+
+    /****************
+	R-TABLE
+****************/
+    .rtable {
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        text-align: left;
+        width: 50%;
+        padding: 0;
+    }
+
+    /**************************
+	VOTING MODE PLAYLIST
+**************************/
+    .cell-vote-playlist {
+        flex-grow: 1;
+        width: 85%;
+        overflow: hidden;
+        list-style: none;
+        font-size: 18px;
+        text-align: left;
+        border: transparent;
+        border-width: 2px 2px 1px 2px;
+        cursor: pointer;
+    }
+
+    /*****************
+	VOTING MODE
+*****************/
+    .cell-vote {
+        flex-grow: 1;
+        width: 15%;
+        overflow: hidden;
+        list-style: none;
+        font-size: 18px;
+        border: transparent;
+        border-width: 2px 2px 1px 0px;
+    }
+
+    /***************************
+	JUKEBOX MODE PLAYLIST
+***************************/
+    .jukebox-list {
+        margin: auto;
+        width: 80%;
+        font-size: 24px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .jukebox-list {
+        color: #3dd4f2;
+        border: 1px solid #3dd4f2;
+        border-radius: 15px;
+        cursor: pointer;
+        filter: drop-shadow(0 0 15px #3dd4f2) drop-shadow(0 0 50px #3dd4f2) contrast(2) brightness(2);
+        transition: .5s;
+        margin-bottom: 10px;
+
+    }
+
+    .jukebox-list :hover {
+        color: black;
+        background-color: #3dd4f2;
+        filter: drop-shadow(0 0 15px #3dd4f2) contrast(2) brightness(2);
+    }
+
+    /*******************
+	JUKEBOX QUEUE
+********************/
+    .jukebox-queue {
+        text-align: left;
+        color: white;
+        font-size: 20px;
+    }
+
+    /***************
+	ALBUM ART
+***************/
+    .album-art {
+        height: 40px;
+        width: auto;
+        padding-right: 20px;
+    }
+
+    /*******************************
+	JUKEBOX QUEUE CONTAINER
+*******************************/
+    .jukebox-queue-container {
+        overflow: auto;
+        height: 150px;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    /***********************
+	AFTER HOURS VIEW
+***********************/
+    .after-hours {
+        width: 100%;
+        font-size: 30px;
+        border: none;
+        margin: auto;
+        color: #ffffff;
+    }
+
+    /*************
+	BUTTONS
+*************/
+    .button {
+        background-color: #D0021B;
+        border: none;
+        border-radius: 10px;
+        color: ffffff;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 40px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    #submit {
+        background-color: #d60000;
+        padding: 1em;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 6px;
+        color: #ffffff;
+        font-size: 20px;
+        text-decoration: none;
+        border: none;
+    }
+
+    #submit:hover {
+        border: none;
+        background: #e60000;
+        box-shadow: 0px 0px 1px #777;
+    }
+
+    /********************************
+	REQUEST RESULTS
+********************************/
+    .info-icon {
+        margin: 0 2% 0 2%;
+    }
+
+    .info-box {
+        margin: auto;
+        width: 40%;
+        color: #ecf0f1;
+        text-align: left;
+        font-size: 17px;
+        border-radius: 5px;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        padding: 10px;
+    }
+
+    .innerRequestSuccessful {
+        background-color: #009C00;
+
+    }
+
+    .failed_Info_Box {
+        background-color: #FF7400;
+    }
+
+    /***********************
+    HYPERLINK COLORS
+************************/
+    a:link {
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: lightblue;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    /**
+    Extra Layout Styles
+    **/
+    .category-label {
+        font-size: 24px;
+        font-weight: bold;
+        margin: auto;
+        width: 80%;
+        padding-top: 10px;
+        color: white;
+    }
+
+    .category-section {
+        padding-bottom: 10px;
+    }
+
+    .queue-holder {
+        margin: auto;
+        margin-top: 15px;
+        width: 70%;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        border-top: 1px solid white;
+
+    }
+
+    .queue-holder p {
+        font-size: 20px;
+        margin: 0;
+        margin-top: 10px;
+    }
+</style>
+<!-----END OF STYLE OPTIONS----->
+
+<!-----START OF PAGE DESIGN----->
+<div id="header_img_content"> </div>
+<div id="your_logo"> <img src="https://xmasstore.blob.core.windows.net/public/everton lights (3).png"
+        style="width:100%; height:auto; margin:  auto; position:center ;"> </div>
+<div id="your_logo"> <img src="https://xmasstore.blob.core.windows.net/public/EVERTON LIGHTS (5).png"
+        style="width:25%; height:auto; margin:  auto; position:center ;"> </div>
+
+<!-- This section will be displayed if your show isn't playing a scheduled playlist-->
+<div {after-hours-message}>
+    <div class="main-title"> Show Hours</div>
+    <div class="body_text"> Sunday through Thursday from Sunset to 10:00 P.M.<br />
+        Friday and Saturday from sunset to 11:00 P.M. </div>
+</div>
+
+<!-- The section below will only display if your show is set for Jukebox mode, there
+is no need to delete it if you are using the Voting mode, and you might change your
+mind on the selection method later! -->
+
+<div {jukebox-dynamic-container}>
+    <div class="main-title"> Playing Now </div>
+    <div class="body_text"> {NOW_PLAYING}<br />
+    </div>
+
+    <!-- <p class="light-main-title">Next Selection</p>
+    <div class="body_text"> {NEXT_PLAYLIST} </div> -->
+    <!-- <p class="light-main-title"># Selected Songs</p>
+    <div class="body_text"> {QUEUE_SIZE} </div> -->
+    <div class="queue-holder">
+        <p>Up Next:</p>
+        <div style="color: white;font-size: 20px;">
+            <div class="body_text"> {JUKEBOX_QUEUE} </div>
+            <br />
+        </div>
+    </div>
+    <div><img src="https://xmasstore.blob.core.windows.net/public/Asset 3@3x.png"
+            style="width:40%; height: auto; margin: auto;"></div>
+</div>
+
+<!-- This section is used for the instructions that you want if you are using the Jukebox mode. 
+If you are using the voting mode, then it will not show.
+Note that you can use the {QUEUE_SIZE} in your instructions, You shouldn't delete this if you are using the voting mode
+because you might change your mind later.
+Modify this to provide the instructions you want for your audience-->
+
+<!-- JUKEBOX MODE INSTRUCTIONS -->
+
+<div class="body_text" id="instructional-text" {jukebox-dynamic-container}>
+    <div class="white-title"> Request a Song</div>
+
+    <!-- VOTING MODE INSTRUCTIONS -->
+
+    <div class="body_text" id="instructional-text" {playlist-voting-dynamic-container}>
+        <div class="white-title">Vote For Your Favorite</div>
+        🎄 Vote for your favorite song from the list below 🎄 <br>
+        🎄 Your vote will be added to the song you choose 🎄 <br />
+        🎄 The song with the most votes will play next 🎄<br />
+        🎄 You can only vote once per round 🎄<br />
+        🎄 Voting will reset when the song with the highest votes starts to play 🎄 <br>
+        <img src="https://i.imgur.com/lDiXtkp.png" style="width:50%; height: auto; margin: auto;">
+    </div>
+
+
+    <!--
+  This is the section for the location code for the viewer to enter, if you have
+  location code enabled. It appears twice here, once for jukebox and once for 
+  voting. 
+-->
+    <div {location-code-dynamic-container}>
+        <div id="location_code_text"> Enter the code below to submit a request: </div>
+        <div id="location_code_container"> {LOCATION_CODE} </div>
+    </div>
+
+    <!-- The section below will only display if your show is set for Voting mode, there
+is no need to delete it if you are using the Jukebox mode, and you might change your
+mind on the selection method later! -->
+
+    <div {playlist-voting-dynamic-container}>
+        <div class="rtable">
+            <div class="cell-vote-playlist"
+                style="border: none; font-weight:bold; text-decoration: underline; cursor: text"> Song List </div>
+            <div class="cell-vote" style="border: none; font-weight:bold; text-decoration: underline; cursor: text">
+                Votes </div>
+        </div>
+        <div class="rtable"> {PLAYLISTS} </div>
+    </div>
+
+    <!-- The section below will only display if your show is set for Jukebox mode, there
+is no need to delete it if you are using the Voting mode, and you might change your
+mind on the selection method later! -->
+
+    <div {jukebox-dynamic-container}>
+        <div id="playlists_container"> {PLAYLISTS} </div>
+    </div>
+    <!-- *****************************************
+    The sections below are for the error messages, don't delete them!
+    ************************************* -->
+
+    <div id="requestSuccessful" style="display: inline">
+        <div id="test" class="info-box innerRequestSuccessful">
+            <i class="info-icon zmdi zmdi-check"></i>
+            Successfully Added!
+        </div>
+    </div>
+    <div class="failed" id="requestFailed" style="display: none">
+        <div class="info-box failed_Info_Box">
+            <i class="zmdi zmdi-alert-circle-o"></i>
+            An unexpected error has occurred!
+        </div>
+    </div>
+    <div id="requestPlaying" style="display: none">
+        <div class="info-box failed_Info_Box">
+            <i class="zmdi zmdi-alert-circle-o"></i>
+            This song has already been requested.
+        </div>
+    </div>
+    <div class="failed" id="queueFull" style="display: none">
+        <div class="info-box failed_Info_Box">
+            <i class="zmdi zmdi-alert-circle-o"></i>
+            The queue is full
+        </div>
+    </div>
+    <div id="invalidLocation" style="display: none">
+        <div class="info-box failed_Info_Box">
+            <i class="zmdi zmdi-alert-circle-o"></i>
+            You are not located where the show is.
+        </div>
+    </div>
+    <div id="alreadyVoted" style="display: none">
+        <div class="info-box failed_Info_Box">
+            <i class="zmdi zmdi-alert-circle-o"></i>
+            You can only vote once per round
+        </div>
+    </div>
+    <div id="invalidLocationCode" style="display: none">
+        <div class="info-box failed_Info_Box">
+            <i class="zmdi zmdi-alert-circle-o"></i>
+            Invalid Code
+        </div>
+    </div>
+
+    <!-- end of error messages -->
+
+    <div id="footer"> <img src="https://i.imgur.com/Jhr5CsV.png" style="width:105%;"> </div>
+
+</html>
