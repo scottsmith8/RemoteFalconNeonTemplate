@@ -1,6 +1,3 @@
-<!doctype html>
-<html>
-<meta charset="UTF-8">
 <!--
    This HTML template was coded by Rick Harris and modified by Sam Cotterell
    Page graphics are source from Adobe Stock images. 
@@ -117,6 +114,8 @@
         color: transparent;
         text-align: center;
         font-size: 18px;
+        position: absolute;
+        bottom: 0;
     }
 
     /********************
@@ -457,6 +456,10 @@
     /**
     Extra Layout Styles
     **/
+    .main-content {
+        min-height: 100%;
+    }
+
     .category-label {
         font-size: 24px;
         font-weight: bold;
@@ -489,89 +492,17 @@
 <!-----END OF STYLE OPTIONS----->
 
 <!-----START OF PAGE DESIGN----->
-<div id="header_img_content"> </div>
-<div id="your_logo"> <img src="https://xmasstore.blob.core.windows.net/public/everton lights (3).png"
-        style="width:100%; height:auto; margin:  auto; position:center ;"> </div>
-<div id="your_logo"> <img src="https://xmasstore.blob.core.windows.net/public/EVERTON LIGHTS (5).png"
-        style="width:25%; height:auto; margin:  auto; position:center ;"> </div>
+<div class="main-content">
+    <div id="banner"> <img src="https://xmasstore.blob.core.windows.net/public/everton lights (3).png"
+            style="width:100%; height:auto; margin:  auto; position:center ;"> </div>
+    <div id="your_logo"> <img src="https://xmasstore.blob.core.windows.net/public/EVERTON LIGHTS (5).png"
+            style="width:25%; height:auto; margin:  auto; position:center ;"> </div>
 
-<!-- This section will be displayed if your show isn't playing a scheduled playlist-->
-<div {after-hours-message}>
-    <div class="main-title"> Show Hours</div>
-    <div class="body_text"> Sunday through Thursday from Sunset to 10:00 P.M.<br />
-        Friday and Saturday from sunset to 11:00 P.M. </div>
-</div>
-
-<!-- The section below will only display if your show is set for Jukebox mode, there
-is no need to delete it if you are using the Voting mode, and you might change your
-mind on the selection method later! -->
-
-<div {jukebox-dynamic-container}>
-    <div class="main-title"> Playing Now </div>
-    <div class="body_text"> {NOW_PLAYING}<br />
-    </div>
-
-    <!-- <p class="light-main-title">Next Selection</p>
-    <div class="body_text"> {NEXT_PLAYLIST} </div> -->
-    <!-- <p class="light-main-title"># Selected Songs</p>
-    <div class="body_text"> {QUEUE_SIZE} </div> -->
-    <div class="queue-holder">
-        <p>Up Next:</p>
-        <div style="color: white;font-size: 20px;">
-            <div class="body_text"> {JUKEBOX_QUEUE} </div>
-            <br />
-        </div>
-    </div>
-    <div><img src="https://xmasstore.blob.core.windows.net/public/Asset 3@3x.png"
-            style="width:40%; height: auto; margin: auto;"></div>
-</div>
-
-<!-- This section is used for the instructions that you want if you are using the Jukebox mode. 
-If you are using the voting mode, then it will not show.
-Note that you can use the {QUEUE_SIZE} in your instructions, You shouldn't delete this if you are using the voting mode
-because you might change your mind later.
-Modify this to provide the instructions you want for your audience-->
-
-<!-- JUKEBOX MODE INSTRUCTIONS -->
-
-<div class="body_text" id="instructional-text" {jukebox-dynamic-container}>
-    <div class="white-title"> Request a Song</div>
-
-    <!-- VOTING MODE INSTRUCTIONS -->
-
-    <div class="body_text" id="instructional-text" {playlist-voting-dynamic-container}>
-        <div class="white-title">Vote For Your Favorite</div>
-        🎄 Vote for your favorite song from the list below 🎄 <br>
-        🎄 Your vote will be added to the song you choose 🎄 <br />
-        🎄 The song with the most votes will play next 🎄<br />
-        🎄 You can only vote once per round 🎄<br />
-        🎄 Voting will reset when the song with the highest votes starts to play 🎄 <br>
-        <img src="https://i.imgur.com/lDiXtkp.png" style="width:50%; height: auto; margin: auto;">
-    </div>
-
-
-    <!--
-  This is the section for the location code for the viewer to enter, if you have
-  location code enabled. It appears twice here, once for jukebox and once for 
-  voting. 
--->
-    <div {location-code-dynamic-container}>
-        <div id="location_code_text"> Enter the code below to submit a request: </div>
-        <div id="location_code_container"> {LOCATION_CODE} </div>
-    </div>
-
-    <!-- The section below will only display if your show is set for Voting mode, there
-is no need to delete it if you are using the Jukebox mode, and you might change your
-mind on the selection method later! -->
-
-    <div {playlist-voting-dynamic-container}>
-        <div class="rtable">
-            <div class="cell-vote-playlist"
-                style="border: none; font-weight:bold; text-decoration: underline; cursor: text"> Song List </div>
-            <div class="cell-vote" style="border: none; font-weight:bold; text-decoration: underline; cursor: text">
-                Votes </div>
-        </div>
-        <div class="rtable"> {PLAYLISTS} </div>
+    <!-- This section will be displayed if your show isn't playing a scheduled playlist-->
+    <div {after-hours-message}>
+        <div class="main-title"> Show Hours</div>
+        <div class="body_text"> Sunday through Thursday from Sunset to 10:00 P.M.<br />
+            Friday and Saturday from sunset to 11:00 P.M. </div>
     </div>
 
     <!-- The section below will only display if your show is set for Jukebox mode, there
@@ -579,57 +510,127 @@ is no need to delete it if you are using the Voting mode, and you might change y
 mind on the selection method later! -->
 
     <div {jukebox-dynamic-container}>
-        <div id="playlists_container"> {PLAYLISTS} </div>
+        <div class="main-title"> Playing Now </div>
+        <div class="body_text"> {NOW_PLAYING}<br />
+        </div>
+
+        <!-- <p class="light-main-title">Next Selection</p>
+    <div class="body_text"> {NEXT_PLAYLIST} </div> -->
+        <!-- <p class="light-main-title"># Selected Songs</p>
+    <div class="body_text"> {QUEUE_SIZE} </div> -->
+        <div class="queue-holder">
+            <p>Up Next:</p>
+            <div style="color: white;font-size: 20px;">
+                <div class="body_text"> {JUKEBOX_QUEUE} </div>
+                <br />
+            </div>
+        </div>
+        <div><img src="https://xmasstore.blob.core.windows.net/public/Asset 3@3x.png"
+                style="width:40%; height: auto; margin: auto;"></div>
     </div>
-    <!-- *****************************************
+
+    <!-- This section is used for the instructions that you want if you are using the Jukebox mode. 
+If you are using the voting mode, then it will not show.
+Note that you can use the {QUEUE_SIZE} in your instructions, You shouldn't delete this if you are using the voting mode
+because you might change your mind later.
+Modify this to provide the instructions you want for your audience-->
+
+    <!-- JUKEBOX MODE INSTRUCTIONS -->
+
+    <div class="body_text" id="instructional-text" {jukebox-dynamic-container}>
+        <div class="white-title"> Request a Song</div>
+
+        <!-- VOTING MODE INSTRUCTIONS -->
+
+        <div class="body_text" id="instructional-text" {playlist-voting-dynamic-container}>
+            <div class="white-title">Vote For Your Favorite</div>
+            🎄 Vote for your favorite song from the list below 🎄 <br>
+            🎄 Your vote will be added to the song you choose 🎄 <br />
+            🎄 The song with the most votes will play next 🎄<br />
+            🎄 You can only vote once per round 🎄<br />
+            🎄 Voting will reset when the song with the highest votes starts to play 🎄 <br>
+            <img src="https://i.imgur.com/lDiXtkp.png" style="width:50%; height: auto; margin: auto;">
+        </div>
+
+
+        <!--
+  This is the section for the location code for the viewer to enter, if you have
+  location code enabled. It appears twice here, once for jukebox and once for 
+  voting. 
+-->
+        <div {location-code-dynamic-container}>
+            <div id="location_code_text"> Enter the code below to submit a request: </div>
+            <div id="location_code_container"> {LOCATION_CODE} </div>
+        </div>
+
+        <!-- The section below will only display if your show is set for Voting mode, there
+is no need to delete it if you are using the Jukebox mode, and you might change your
+mind on the selection method later! -->
+
+        <div {playlist-voting-dynamic-container}>
+            <div class="rtable">
+                <div class="cell-vote-playlist"
+                    style="border: none; font-weight:bold; text-decoration: underline; cursor: text"> Song List </div>
+                <div class="cell-vote" style="border: none; font-weight:bold; text-decoration: underline; cursor: text">
+                    Votes </div>
+            </div>
+            <div class="rtable"> {PLAYLISTS} </div>
+        </div>
+
+        <!-- The section below will only display if your show is set for Jukebox mode, there
+is no need to delete it if you are using the Voting mode, and you might change your
+mind on the selection method later! -->
+
+        <div {jukebox-dynamic-container}>
+            <div id="playlists_container"> {PLAYLISTS} </div>
+        </div>
+        <!-- *****************************************
     The sections below are for the error messages, don't delete them!
     ************************************* -->
 
-    <div id="requestSuccessful" style="display: inline">
-        <div id="test" class="info-box innerRequestSuccessful">
-            <i class="info-icon zmdi zmdi-check"></i>
-            Successfully Added!
+        <div id="requestSuccessful" style="display: inline">
+            <div id="test" class="info-box innerRequestSuccessful">
+                <i class="info-icon zmdi zmdi-check"></i>
+                Successfully Added!
+            </div>
+        </div>
+        <div class="failed" id="requestFailed" style="display: none">
+            <div class="info-box failed_Info_Box">
+                <i class="zmdi zmdi-alert-circle-o"></i>
+                An unexpected error has occurred!
+            </div>
+        </div>
+        <div id="requestPlaying" style="display: none">
+            <div class="info-box failed_Info_Box">
+                <i class="zmdi zmdi-alert-circle-o"></i>
+                This song has already been requested.
+            </div>
+        </div>
+        <div class="failed" id="queueFull" style="display: none">
+            <div class="info-box failed_Info_Box">
+                <i class="zmdi zmdi-alert-circle-o"></i>
+                The queue is full
+            </div>
+        </div>
+        <div id="invalidLocation" style="display: none">
+            <div class="info-box failed_Info_Box">
+                <i class="zmdi zmdi-alert-circle-o"></i>
+                You are not located where the show is.
+            </div>
+        </div>
+        <div id="alreadyVoted" style="display: none">
+            <div class="info-box failed_Info_Box">
+                <i class="zmdi zmdi-alert-circle-o"></i>
+                You can only vote once per round
+            </div>
+        </div>
+        <div id="invalidLocationCode" style="display: none">
+            <div class="info-box failed_Info_Box">
+                <i class="zmdi zmdi-alert-circle-o"></i>
+                Invalid Code
+            </div>
         </div>
     </div>
-    <div class="failed" id="requestFailed" style="display: none">
-        <div class="info-box failed_Info_Box">
-            <i class="zmdi zmdi-alert-circle-o"></i>
-            An unexpected error has occurred!
-        </div>
-    </div>
-    <div id="requestPlaying" style="display: none">
-        <div class="info-box failed_Info_Box">
-            <i class="zmdi zmdi-alert-circle-o"></i>
-            This song has already been requested.
-        </div>
-    </div>
-    <div class="failed" id="queueFull" style="display: none">
-        <div class="info-box failed_Info_Box">
-            <i class="zmdi zmdi-alert-circle-o"></i>
-            The queue is full
-        </div>
-    </div>
-    <div id="invalidLocation" style="display: none">
-        <div class="info-box failed_Info_Box">
-            <i class="zmdi zmdi-alert-circle-o"></i>
-            You are not located where the show is.
-        </div>
-    </div>
-    <div id="alreadyVoted" style="display: none">
-        <div class="info-box failed_Info_Box">
-            <i class="zmdi zmdi-alert-circle-o"></i>
-            You can only vote once per round
-        </div>
-    </div>
-    <div id="invalidLocationCode" style="display: none">
-        <div class="info-box failed_Info_Box">
-            <i class="zmdi zmdi-alert-circle-o"></i>
-            Invalid Code
-        </div>
-    </div>
-
     <!-- end of error messages -->
-
-    <div id="footer"> <img src="https://i.imgur.com/Jhr5CsV.png" style="width:105%;"> </div>
-
-</html>
+</div>
+<div id="footer"> <img src="https://i.imgur.com/Jhr5CsV.png" width="100%"> </div>
